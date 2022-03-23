@@ -20,11 +20,11 @@
 
     Truck.prototype.printOrders = function () {
 
-        // first get all the email addresses (keys)
+        // first, get all the email addresses (keys)
         let customerIdArray = Object.keys(this.db.getAll());
 
         console.log('Truck #' + this.truckId + ' has pending orders:');
-        // go through the list of emails associated and get the associated order
+        // go through the list of emails and get associated order
         customerIdArray.forEach(function (id) {
             console.log(this.db.get(id));
         });
