@@ -9,12 +9,12 @@
     }
 
     Truck.prototype.createOrder = function (order) {
-        console.log('Adding order for' + order.emailAdress);
+        console.log('Adding order for ' + order.emailAdress);
         this.db.add(order.emailAdress, order);
     }
 
     Truck.prototype.delieverOrder = function (customerId) {
-        console.log('Delievering order for' + customerId);
+        console.log('Delievering order for ' + customerId);
         this.db.remove(customerId);
     }
 
@@ -27,10 +27,10 @@
         // go through the list of emails and get associated order
         customerIdArray.forEach(function (id) {
             console.log(this.db.get(id));
-        });
+        }.bind(this));
     }
 
     App.Truck = Truck;
-    Window.App = App;
+    window.App = App;
 
 })(window);
