@@ -13,7 +13,7 @@
         this.db.add(order.emailAdress, order);
     }
 
-    Truck.prototype.delieverOrder = function (customerId) {
+    Truck.prototype.deliverOrder = function (customerId) {
         console.log('Delievering order for ' + customerId);
         this.db.remove(customerId);
     }
@@ -23,7 +23,7 @@
         // first, get all the email addresses (keys)
         let customerIdArray = Object.keys(this.db.getAll());
 
-        console.log('Truck #' + this.truckId + ' has pending orders:');
+        console.log('Truck #' + this.truckId + ' has pending orders: ');
         // go through the list of emails and get associated order
         customerIdArray.forEach(function (id) {
             console.log(this.db.get(id));
