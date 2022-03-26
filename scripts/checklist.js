@@ -28,22 +28,22 @@
                 'data-coffee-order': 'checkbox',
                 'class': 'checkbox'
             });
-            let $label = $('<label></label>');
+            let $label = $('<label></label>');  
 
             let $checkbox = $('<input></input>', {
                 type: 'checkbox',
                 value: coffeeOrder.emailAddress
-            })
+            });
         }
     }
 
-    let description = coffeeOrder.size + '';
+    let description = coffeeOrder.size + ' ';
     if (coffeeOrder.flavor) {
-        description += coffeeOrder.flavor + '';
+        description += coffeeOrder.flavor + ' ';
     }
-    description += coffeeOrder.coffee + '';
-    description += '(' + coffeeOrder.emailAddress + ')';
-    description += '[' + coffeeOrder.strength + 'x]';
+    description += coffeeOrder.coffee + ', ';
+    description += ' (' + coffeeOrder.emailAddress + ')';
+    description += ' [' + coffeeOrder.strength + 'x]';
 
     $label.append($checkbox);
     $label.append(description);
