@@ -2,39 +2,36 @@
     'use strict';
     let App = window.App || {};
     let $ = window.jQuery;
-
-    // the CheckList object constructor
-    function CheckList(selector) {
+    function Checklist(selector) {
         if (!selector) {
-            throw new error('No selector provided');
+            throw new Error('No selector provided');
         }
         this.$element = $(selector);
         if (this.$element.length === 0) {
-            throw new Error('Could not find element with selector: ' + selector);
+            throw new Error('Could not find the element with selector: ' + selector);
         }
+    }
 
-        // the method that adds a new row to the Checklist
-        CheckList.prototype.addRow = function (coffeeOrder) {
-            // Create a new instance of a row, using the coffee order info
-            var rowElement = new Row(coffeeOrder);
-            // Add the new row instance's $element property to the checklist 
-            this.$element.append(rowElement.$element);
-        };
+    // The method that adds a new row to the checklist
+    CheckList.prototype.addRow = function (coffeeOrder) {
+        // Create a new instance of a row, using the coffee order info
+        var rowElement = new Row(coffeeOrder);
+        // Add the new row instance's $element prototype to the checklist
+        this.$element.append(rowElement.$element);
+    };
 
-        // Each row is one outstanding order
-        function Row(coffeeOrder) {
-            // Constructor code will go here
-            let $div = $('<div></div>', {
-                'data-coffee-order': 'checkbox',
-                'class': 'checkbox'
-            });
-            let $label = $('<label></label>');  
+    // Each row is one Outstanding Order
+    function Row(coffeeOrder) {
+        let $div = $('<div></div>', {
+            'data-coffee-order': 'checkbox',
+            'class': 'checkbox'
+        });
+        let $label = $('<label></label>');
 
-            let $checkbox = $('<input></input>', {
-                type: 'checkbox',
-                value: coffeeOrder.emailAddress
-            });
-        }
+        let $checkbox = $('<input></input>', {
+            type: 'checkbox',
+            value: coffeeOrder.emailAddress
+        });
     }
 
     let description = coffeeOrder.size + ' ';
@@ -52,6 +49,6 @@
     this.$element = $div;
 
     // Add the Checklist to the App namespace
-    App.CheckList = CheckList;
-    window.App = App;
+    App.Checklist = CheckList;
+window.App = App;
 })(window);
