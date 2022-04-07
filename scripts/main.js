@@ -12,17 +12,16 @@
     let CheckList = App.CheckList;
 
     let myTruck = new Truck('12345', new DataStore());
-    let checkList = new CheckList(CHECKLIST_SELECTOR);
-
     window.myTruck = myTruck;
 
-    // find the form that is being submitted and created a formHandler object
-    let formHandler = new FormHandler(FORM_SELECTOR);
+    let checkList = new CheckList(CHECKLIST_SELECTOR);
 
+    let formHandler = new FormHandler(FORM_SELECTOR);
+    
     // when the submit button is called, create the order and add a checkbox
     formHandler.addSubmitHandler(function (data) {
         myTruck.createOrder.call(myTruck, data);
-        checkList.addRow.call(checkList, data);
+        CheckList.addRow.call(CheckList, data);
     });
-
+    
 })(window);

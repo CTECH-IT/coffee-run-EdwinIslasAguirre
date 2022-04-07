@@ -2,12 +2,13 @@
     'use strict';
     let App = window.App || {};
     let $ = window.jQuery;
-    function Checklist(selector) {
+    function CheckList(selector) {
         if (!selector) {
             throw new Error('No selector provided');
         }
+
         this.$element = $(selector);
-        if (this.$element.length === 0) {
+        if (this.$element.length == 0) {
             throw new Error('Could not find the element with selector: ' + selector);
         }
     }
@@ -32,23 +33,26 @@
             type: 'checkbox',
             value: coffeeOrder.emailAddress
         });
+
+        let description = coffeeOrder.size + ' ';
+
+        if (coffeeOrder.flavor) {
+            description += coffeeOrder.flavor + ' ';
+        }
+        description += coffeeOrder.coffee + ', ';
+        description += ' (' + coffeeOrder.emailAddress + ')';
+        description += ' [' + coffeeOrder.strength + 'x]';
+
+        $label.append($checkbox);
+        $label.append(description);
+        $div.append($label);
+
+        this.$element = $div;
+
     }
-
-    let description = coffeeOrder.size + ' ';
-    if (coffeeOrder.flavor) {
-        description += coffeeOrder.flavor + ' ';
-    }
-    description += coffeeOrder.coffee + ', ';
-    description += ' (' + coffeeOrder.emailAddress + ')';
-    description += ' [' + coffeeOrder.strength + 'x]';
-
-    $label.append($checkbox);
-    $label.append(description);
-    $div.append($label);
-
-    this.$element = $div;
 
     // Add the Checklist to the App namespace
-    App.Checklist = CheckList;
-window.App = App;
+    App.CheckList = CheckList;
+    window.App = App;
+
 })(window);
