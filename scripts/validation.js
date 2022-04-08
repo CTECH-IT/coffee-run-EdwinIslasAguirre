@@ -3,7 +3,9 @@
 
     let App = window.App || {};
     let Validation = {
-        // awesome code that will do amazing stuff goes here
+        isCompanyEmail: function (email) {
+            return /.+@isd535\.org$/.test(email);
+        }
     };
 
     App.Validation = Validation;
