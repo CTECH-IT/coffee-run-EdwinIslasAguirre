@@ -22,10 +22,10 @@
     // when the submit button is called, create the order and add a checkbox
     formHandler.addSubmitHandler(function (data) {
         myTruck.createOrder.call(myTruck, data);
-        CheckList.addRow.call(CheckList, data);
+        checkList.addRow.call(checkList, data);
     });
 
     // add the email validator to the email input field
-    formHandler.addInputHandler(Validation.isCompanyEmail);
+    formHandler.addInputHandler(Validation.isCompanyEmail);   
 
 })(window);
