@@ -26,6 +26,6 @@
     });
 
     // add the email validator to the email input field
-    formHandler.addInputHandler(Validation.isCompanyEmail);   
+    formHandler.addInputHandler(Validation.isCompanyEmail);
 
 })(window);
